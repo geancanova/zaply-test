@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+senha-db-postgres.txt
 
 # debug
 npm-debug.log*
