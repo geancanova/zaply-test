@@ -15,7 +15,7 @@ export default function ProductLayout({
   return (
     <BaseLayout>
       <Header />
-      <main className="max-w-4xl m-auto p-4">{children}</main>
+      {children}
     </BaseLayout>
   );
 }
