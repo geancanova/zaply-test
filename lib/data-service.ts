@@ -54,6 +54,18 @@ export async function fetchProducts(
   };
 }
 
+export async function fetchProduct(id: string) {
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return data as Product;
+}
+
 export async function fetchCategories() {
   const { data, error } = await supabase
     .from("products")

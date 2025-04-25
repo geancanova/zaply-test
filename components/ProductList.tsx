@@ -2,6 +2,7 @@ import Pagination from "@/components/Pagination";
 import ProductCard from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/data-service";
 import { ProductFilter } from "@/types";
+import NotFound from "@/components/NotFound";
 
 interface ProductListProps extends ProductFilter {
   page: number;
@@ -28,13 +29,7 @@ export default async function ProductList({
   );
 
   if (!products || products.length === 0) {
-    return (
-      <div className="py-4">
-        <p className="text-3xl font-semibold text-center text-gray-400">
-          Nenhum produto encontrado
-        </p>
-      </div>
-    );
+    return <NotFound message="Nenhum produto encontrado." />;
   }
 
   const totalPages = Math.ceil(total / pageSize);

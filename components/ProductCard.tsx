@@ -1,7 +1,10 @@
+"use client";
+
 import ButtonIcon from "@/components/ButtonIcon";
 import ProductCardImage from "@/components/ProductCardImage";
 import { Product } from "@/types";
 import { Edit, Trash } from "@deemlol/next-icons";
+import { useRouter } from "next/navigation";
 
 export default function ProductCard({
   id,
@@ -11,6 +14,8 @@ export default function ProductCard({
   price,
   brand,
 }: Product) {
+  const router = useRouter();
+
   return (
     <div
       key={id}
@@ -27,7 +32,7 @@ export default function ProductCard({
       </div>
 
       <div className="flex flex-col gap-2 z-10 absolute right-0 top-0 pt-2 pr-2 translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-200 ease-in-out">
-        <ButtonIcon title="Edit">
+        <ButtonIcon title="Edit" onClick={() => router.push(`/produto/${id}`)}>
           <Edit size={24} color="#fff" />
         </ButtonIcon>
         <ButtonIcon title="Delete" type="delete">
