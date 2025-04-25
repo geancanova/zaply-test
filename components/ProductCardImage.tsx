@@ -16,7 +16,7 @@ export default function ProductCardImage({ src, alt }: ProductCardImageProps) {
     <div className="mb-4">
       {imgError ? (
         <div className="w-full aspect-square bg-gray-200 rounded text-gray-400 uppercase text-center flex items-center justify-center font-[family-name:var(--font-roboto)]">
-          No image
+          Sem Imagem
         </div>
       ) : (
         <div className="border border-gray-100 bg-white rounded p-2">

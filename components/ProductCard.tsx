@@ -1,6 +1,6 @@
 import ButtonIcon from "@/components/ButtonIcon";
 import ProductCardImage from "@/components/ProductCardImage";
-import { Product } from "@/types/product";
+import { Product } from "@/types";
 import { Edit, Trash } from "@deemlol/next-icons";
 
 export default function ProductCard({
