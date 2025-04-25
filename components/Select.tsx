@@ -33,6 +33,8 @@ export default function Select({
       params.delete(filter);
     }
 
+    params.set("page", "1");
+
     replace(`${pathname}?${params.toString()}`);
   }
 

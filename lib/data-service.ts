@@ -1,8 +1,18 @@
 import { supabase } from "./supabase";
 import { Product, ProductFilter } from "@/types";
 
-export async function fetchProducts(filters: ProductFilter = {}) {
-  let query = supabase.from("products").select("*");
+export async function fetchProducts(
+  filters: ProductFilter = {},
+  page = 1,
+  pageSize = 12
+) {
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  let query = supabase
+    .from("products")
+    .select("*", { count: "exact" })
+    .range(from, to);
 
   if (filters.term) {
     query = query
@@ -34,11 +44,14 @@ export async function fetchProducts(filters: ProductFilter = {}) {
     }
   }
 
-  const { data, error } = await query;
+  const { data, count, error } = await query;
 
   if (error) throw new Error(error.message);
 
-  return data as Product[];
+  return {
+    products: data as Product[],
+    total: count ?? 0,
+  };
 }
 
 export async function fetchCategories() {

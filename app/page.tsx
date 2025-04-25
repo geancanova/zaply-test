@@ -13,13 +13,15 @@ function generateFilterKey(filters: ProductFilter): string {
 }
 
 export default async function ProductsPage(props: {
-  searchParams?: Promise<ProductFilter>;
+  searchParams?: Promise<ProductFilter & { page?: string }>;
 }) {
   const searchParams = await props.searchParams;
   const term = searchParams?.term || "";
   const categories = searchParams?.categories;
   const brand = searchParams?.brand;
   const priceRange = searchParams?.priceRange;
+  const page = parseInt(searchParams?.page || "1");
+  const pageSize = 12;
 
   const suspenseKey = generateFilterKey({
     term,
@@ -35,6 +37,8 @@ export default async function ProductsPage(props: {
         categories={categories}
         brand={brand}
         priceRange={priceRange}
+        page={page}
+        pageSize={pageSize}
       />
     </Suspense>
   );

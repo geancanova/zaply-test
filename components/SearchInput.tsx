@@ -19,6 +19,8 @@ export default function SearchInput() {
       params.delete("term");
     }
 
+    params.set("page", "1");
+
     replace(`${pathname}?${params.toString()}`);
   }
 
