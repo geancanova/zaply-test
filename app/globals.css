@@ -3,6 +3,8 @@
 :root {
   --background: #fefefe;
   --foreground: #171717;
+  --gray: #374151;
+  --primary-200: #93c5fd;
 }
 
 body {
@@ -15,4 +17,22 @@ body {
 
 img {
   @apply max-w-full h-auto;
+}
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid var(--color-gray-200);
+    border-right-color: var(--background);
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
 }
