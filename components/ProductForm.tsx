@@ -50,7 +50,7 @@ export default function ProductForm(product?: ProductFormProps) {
         await createProduct(payload);
         alert("Produto criado com sucesso!");
       }
-      router.refresh();
+      router.push("/");
     } catch (error) {
       console.error("Erro ao salvar produto:", error);
     }
