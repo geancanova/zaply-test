@@ -1,3 +1,4 @@
+import { ProductFormData } from "@/schemas/productSchema";
 import { supabase } from "./supabase";
 import { Product, ProductFilter } from "@/types";
 
@@ -94,4 +95,41 @@ export async function fetchBrands() {
     .filter((br): br is string => !!br);
 
   return [...new Set(brands)];
+}
+
+export async function createProduct(data: ProductFormData) {
+  const { error } = await supabase.from("products").insert([data]);
+
+  if (error) throw new Error(error.message);
+
+  return true;
+}
+
+export async function deleteProduct(id: number) {
+  const { error } = await supabase.from("products").delete().eq("id", id);
+
+  if (error) throw new Error(error.message);
+
+  return true;
+}
+
+export async function updateProduct(id: number, data: ProductFormData) {
+  const { error } = await supabase.from("products").update(data).eq("id", id);
+  if (error) throw error;
+}
+
+export async function uploadImage(file: File): Promise<string> {
+  const filePath = `products/${Date.now()}-${file.name}`;
+
+  const { error } = await supabase.storage
+    .from("products")
+    .upload(filePath, file);
+
+  if (error) throw error;
+
+  const { data: publicUrlData } = supabase.storage
+    .from("products")
+    .getPublicUrl(filePath);
+
+  return publicUrlData?.publicUrl || "";
 }

@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Filter from "@/components/Filter";
 import SearchInput from "@/components/SearchInput";
 import BaseLayout from "@/components/BaseLayout";
@@ -16,7 +15,6 @@ export default function RootLayout({
 }) {
   return (
     <BaseLayout>
-      <Header />
       <main className="grid grid-cols-1 md:grid-cols-[237px_1fr] gap-4 max-w-7xl m-auto p-4">
         <aside>
           <Filter />

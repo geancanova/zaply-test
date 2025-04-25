@@ -13,23 +13,21 @@ export default function ProductCardImage({ src, alt }: ProductCardImageProps) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="mb-4">
+    <>
       {imgError ? (
-        <div className="w-full aspect-square bg-gray-200 rounded text-gray-400 uppercase text-center flex items-center justify-center font-[family-name:var(--font-roboto)]">
+        <div className="w-full m-auto aspect-square bg-gray-200 rounded text-gray-400 uppercase text-center flex items-center justify-center font-[family-name:var(--font-roboto)]">
           Sem Imagem
         </div>
       ) : (
-        <div className="border border-gray-100 bg-white rounded p-2">
-          <Image
-            src={src}
-            alt={alt}
-            width={500}
-            height={500}
-            onError={() => setImgError(true)}
-            className="object-cover rounded aspect-square m-auto"
-          />
-        </div>
+        <Image
+          src={src}
+          alt={alt}
+          width={300}
+          height={300}
+          onError={() => setImgError(true)}
+          className="aspect-square w-full m-auto"
+        />
       )}
-    </div>
+    </>
   );
 }

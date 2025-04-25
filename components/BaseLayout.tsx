@@ -1,5 +1,6 @@
-import { Roboto, Roboto_Condensed } from "next/font/google";
 import "@/app/globals.css"; // certifique-se de usar o caminho correto
+import Header from "@/components/Header";
+import { Roboto, Roboto_Condensed } from "next/font/google";
 import React from "react";
 
 const roboto = Roboto({
@@ -22,6 +23,7 @@ export default function BaseLayout({
       <body
         className={`${roboto.variable} ${robotoCondensed.variable} antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>
