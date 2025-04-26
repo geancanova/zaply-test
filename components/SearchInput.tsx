@@ -1,28 +1,18 @@
 "use client";
 
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/Button";
+import { useSetParams } from "@/hooks/useSetParams";
 
 export default function SearchInput() {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const { setParams } = useSetParams();
 
   const [inputValue, setInputValue] = useState("");
 
   function handleSearch(term: string) {
-    const params = new URLSearchParams(searchParams);
-
-    if (term) {
-      params.set("term", term);
-    } else {
-      params.delete("term");
-    }
-
-    params.set("page", "1");
-
-    replace(`${pathname}?${params.toString()}`);
+    setParams({ term, page: "1" });
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {

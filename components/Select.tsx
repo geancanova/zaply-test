@@ -1,6 +1,7 @@
 "use client";
 
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useSetParams } from "@/hooks/useSetParams";
+import { useSearchParams } from "next/navigation";
 
 interface SelectProps {
   label?: string;
@@ -21,21 +22,10 @@ export default function Select({
   placeholder = "Selecione uma opção",
 }: SelectProps) {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const { setParams } = useSetParams();
 
   function handleSearch(value: string) {
-    const params = new URLSearchParams(searchParams);
-
-    if (value) {
-      params.set(filter, value);
-    } else {
-      params.delete(filter);
-    }
-
-    params.set("page", "1");
-
-    replace(`${pathname}?${params.toString()}`);
+    setParams({ [filter]: value, page: "1" });
   }
 
   return (
