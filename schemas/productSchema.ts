@@ -16,10 +16,13 @@ export const productSchema = z.object({
     .optional()
     .refine(
       (file) => {
-        if (!file) return true; // campo opcional
-        return file instanceof File && file.type.startsWith("image/");
+        if (!file || file.length === 0) return true;
+        if (file.length !== 1) return false;
+        return file[0].type.startsWith("image/");
       },
-      { message: "Envie um arquivo de imagem válido" }
+      {
+        message: "Envie um arquivo de imagem válido",
+      }
     ),
 });
 

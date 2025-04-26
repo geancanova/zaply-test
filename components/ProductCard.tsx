@@ -37,7 +37,7 @@ export default function ProductCard({
       className="group relative flex flex-col rounded-lg p-4 shadow-sm overflow-hidden"
     >
       <div className="mb-4">
-        <div className="border border-gray-100 bg-white rounded p-2">
+        <div className="border border-gray-100 bg-white rounded p-2 aspect-square flex items-center justify-center">
           <ProductCardImage src={image} alt={name} />
         </div>
       </div>

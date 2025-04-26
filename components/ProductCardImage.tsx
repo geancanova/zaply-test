@@ -25,7 +25,7 @@ export default function ProductCardImage({ src, alt }: ProductCardImageProps) {
           width={300}
           height={300}
           onError={() => setImgError(true)}
-          className="aspect-square w-full m-auto object-cover"
+          className="w-full h-auto m-auto"
         />
       )}
     </>
