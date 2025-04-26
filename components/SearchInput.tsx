@@ -2,6 +2,7 @@
 
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { Button } from "@/components/Button";
 
 export default function SearchInput() {
   const searchParams = useSearchParams();
@@ -40,12 +41,9 @@ export default function SearchInput() {
         placeholder="Buscar produto por nome"
         className="w-full h-12 px-4 border border-gray-200 rounded focus:outline-none focus:ring focus:ring-gray-200"
       />
-      <button
-        onClick={() => handleSearch(inputValue)}
-        className="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
-      >
+      <Button type="button" onClick={() => handleSearch(inputValue)}>
         Buscar
-      </button>
+      </Button>
     </div>
   );
 }

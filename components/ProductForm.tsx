@@ -7,6 +7,7 @@ import { productSchema, ProductFormData } from "@/schemas/productSchema";
 import { createProduct, updateProduct, uploadImage } from "@/lib/data-service";
 import { Product } from "@/types";
 import { useRouter } from "next/navigation";
+import { Button } from "./Button";
 
 type ProductFormProps = Partial<Product>;
 
@@ -86,19 +87,25 @@ export default function ProductForm(product?: ProductFormProps) {
         type="text"
         error={errors.categories?.message}
       />
-      <Input {...register("image")} id="image" label="Imagem" type="file" />
+      <Input
+        {...register("image")}
+        id="image"
+        label="Imagem"
+        type="file"
+        error={
+          typeof errors.image?.message === "string"
+            ? errors.image?.message
+            : undefined
+        }
+      />
       <div className="flex justify-end gap-2 mt-4">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
-        >
+        <Button type="submit" disabled={isSubmitting}>
           {isSubmitting
             ? "Salvando..."
             : isEditMode
             ? "Atualizar Produto"
             : "Criar Produto"}
-        </button>
+        </Button>
       </div>
     </form>
   );

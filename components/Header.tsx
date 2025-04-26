@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/Button";
 
 export default function Header() {
   return (
@@ -8,12 +9,7 @@ export default function Header() {
           Zaply - Product Panel
         </Link>
       </h1>
-      <Link
-        href={"/produto/novo"}
-        className="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
-      >
-        Adicionar Produto
-      </Link>
+      <Button href={"/produto/novo"}>Adicionar Produto</Button>
     </header>
   );
 }

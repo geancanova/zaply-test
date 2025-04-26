@@ -6,10 +6,9 @@ export interface Product {
   price: number;
   brand: string;
 }
-
-export type ProductFilter = {
+export interface ProductFilter {
   term?: string;
   categories?: string;
   brand?: string;
   priceRange?: "0-50" | "50-100" | "+100";
-};
+}
