@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zaply Test
 
-## Getting Started
+Este projeto é uma solução para o desafio de frontend proposto pela Zaply. Ele foi desenvolvido com foco em performance, escalabilidade e boas práticas modernas de desenvolvimento web.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js**: Framework React que oferece renderização híbrida (SSR e SSG), roteamento automático e otimizações de performance. Ideal para aplicações modernas e escaláveis.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática, proporcionando maior segurança e produtividade durante o desenvolvimento.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Tailwind CSS**: Framework CSS utilitário que permite estilização rápida e responsiva diretamente nas classes HTML, reduzindo a necessidade de arquivos CSS separados.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **ESLint**: Ferramenta de linting para identificar e corrigir problemas de código, garantindo consistência e qualidade no código-fonte.
 
-## Learn More
+- **PostCSS**: Ferramenta para transformar CSS com plugins, utilizada aqui para processar e otimizar os estilos do Tailwind CSS.
 
-To learn more about Next.js, take a look at the following resources:
+- **Supabase**: Plataforma de backend como serviço (BaaS) utilizada para armazenar e gerenciar os dados do projeto. Um banco de dados PostgreSQL foi criado e hospedado no Supabase para facilitar o desenvolvimento rápido com integração direta via API REST.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Estrutura do Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O projeto segue a estrutura padrão do Next.js com algumas customizações:
 
-## Deploy on Vercel
+- `app/`: Contém as rotas e páginas da aplicação.
+- `components/`: Componentes reutilizáveis da interface.
+- `lib/`: Funções auxiliares e integrações externas.
+- `types.ts`: Definições de tipos TypeScript utilizados no projeto.
+- `next.config.ts`: Configurações personalizadas do Next.js.
+- `eslint.config.mjs`: Configuração do ESLint para manter a qualidade do código.
+- `postcss.config.mjs`: Configuração do PostCSS para processamento do Tailwind CSS.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Como Executar o Projeto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/geancanova/zaply-test.git
+   cd zaply-test
+   ```
+
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   # ou
+   yarn install
+   # ou
+   pnpm install
+   # ou
+   bun install
+   ```
+
+3. **Configure variáveis de ambiente:**
+
+   Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=https://<sua-instancia>.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=<sua-chave-anon>
+   ```
+
+4. **Inicie o servidor de desenvolvimento:**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Acesse a aplicação:**
+
+   Vá para [http://localhost:3000](http://localhost:3000) no navegador.
+
+## 🧠 Motivações das Escolhas Tecnológicas
+
+- **Next.js**: Escolhido por sua capacidade de renderização híbrida, que melhora o SEO e a performance, além de facilitar o roteamento e a estruturação do projeto.
+
+- **TypeScript**: Adotado para aumentar a robustez do código, facilitando a manutenção e reduzindo erros em tempo de desenvolvimento.
+
+- **Tailwind CSS**: Utilizado para acelerar o processo de estilização e garantir um design responsivo e consistente com menos código CSS personalizado.
+
+- **Supabase**: Fornece um backend completo com banco de dados PostgreSQL e API, o que facilitou o desenvolvimento ágil sem a necessidade de configurar um servidor backend tradicional.
+
+- **ESLint e PostCSS**: Implementados para manter a qualidade e consistência do código, além de otimizar os estilos para melhor performance.
