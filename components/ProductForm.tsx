@@ -31,7 +31,7 @@ export default function ProductForm(product?: ProductFormProps) {
 
   const onSubmit = async (data: ProductFormData) => {
     try {
-      const imageFile = (data.image as FileList)?.[0];
+      const imageFile = data.image ? (data.image as FileList)[0] : null;
       const imageUrl = imageFile
         ? await uploadImage(imageFile)
         : product?.image || "";
