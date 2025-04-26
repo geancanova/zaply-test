@@ -19,8 +19,6 @@ export async function fetchProducts(
     query = query
       .ilike("name", `%${filters.term}%`)
       .order("name", { ascending: true });
-
-    console.log(`filters.term`, filters.term);
   }
 
   if (filters.categories) {

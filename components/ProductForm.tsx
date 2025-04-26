@@ -15,8 +15,6 @@ export default function ProductForm(product?: ProductFormProps) {
   const router = useRouter();
   const isEditMode = product?.id !== undefined;
 
-  console.log(isEditMode);
-
   const {
     register,
     handleSubmit,
